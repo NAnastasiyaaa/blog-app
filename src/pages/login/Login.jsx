@@ -1,5 +1,5 @@
 import "./login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext, useRef } from "react";
 import { Context } from "../../context/Context";
 import axios from 'axios';
@@ -11,6 +11,7 @@ function Login() {
   const userRef = useRef();
   const passwordRef = useRef();
   const { dispatch, isFetching } = useContext(Context);
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,6 +22,7 @@ function Login() {
         password:passwordRef.current.value,
       });
       dispatch({ type: "LOGIN_SUCCESS", payload:res.data });
+      navigate('/')
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE"});
     }
