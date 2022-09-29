@@ -13,12 +13,12 @@ function Register() {
     e.preventDefault();
     setError(false);
     try {
-      const res = await axios.post("https://blog-nastya.herokuapp.com/auth/register", {
+      const res = await axios.post("/auth/register", {
         username,
         email,
         password,
       });
-      res.data && window.location.replace("https://blog-nastya.herokuapp.com/login");
+      res.data && window.location.replace("/login");
     } catch (err) {
       setError(true);
     }
