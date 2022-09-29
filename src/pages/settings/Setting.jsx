@@ -28,8 +28,9 @@ function Setting() {
       data.append("name", filename);
       data.append("file", file);
       updatedUser.profilePic = filename;
-      try {
-        await axios.post("/upload", data);
+      try { 
+        
+        await axios.post("https://blog-nastya.herokuapp.com/api/upload", data);
       } catch (err) {}
     }
     try {
