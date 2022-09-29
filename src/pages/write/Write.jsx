@@ -33,14 +33,14 @@ function Write() {
       } catch (err) {}
     }
     try {
-      const res = await axios.post("/posts", newPost);
+      const res = await axios.post("https://blog-nastya.herokuapp.com/api/posts", newPost);
       window.location.replace("/post/" + res.data._id);
     } catch (err) {}
   };
 
   useEffect(() => {
     const getCats = async () => {
-      const res = await axios.get("/categories");
+      const res = await axios.get("https://blog-nastya.herokuapp.com/api/categories");
       setCategories(res.data);
       setSelectedCategory(res.data[0]);
       console.log(res.data);
